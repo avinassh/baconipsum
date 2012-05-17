@@ -16,6 +16,13 @@ app = Flask( __name__ )
 app.config.from_object( __name__ )
 
 
+if app.config[ "DEBUG" ]:
+    from werkzeug import SharedDataMiddleware
+    app.wsgi_app = SharedDataMiddleware( app.wsgi_app, {
+        "/": os.path.join( os.path.dirname( __file__ ), 'static' )
+    })
+
+
 def connect_db():
     """Returns a new connection to the database."""
     return sqlite3.connect( app.config[ "DATABASE" ] )
@@ -55,6 +62,11 @@ def about():
 @app.route( "/api" )
 def api():
     return render_template( "api.html" )
+
+
+@app.errorhandler( 404 )
+def page_not_found( e ):
+    return render_template( "404.html" ), 404
 
 
 if __name__ == "__main__":
