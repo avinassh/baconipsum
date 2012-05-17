@@ -15,7 +15,9 @@
                 <label class="control-label" for="paragraphs">Paragraphs</label>
                 <div class="controls">
                   <input type="text" class="input-mini" id="paragraphs" name="paragraphs" value="3" />
-                  <span id="paragraphs-error" class="help-inline" style="display:none;">Enter a number</span>
+                  <span id="paragraphs-error" class="help-inline" style="display:none;">
+                    Enter a positive number
+                  </span>
                 </div>
               </div>
 
@@ -42,13 +44,14 @@
 
               <div class="form-actions">
                 <button type="submit" class="btn btn-large btn-primary">Fry up some bacon!</button>
+                <a class="btn btn-large" id="highlight-text">Highlight text</a>
             </fieldset>
           </form>
         </div>
       </div>
 
       <div class="row">
-        <div class="span6 offset3" id="ipsum-text"> </div>
+        <div class="span6 offset3" id="ipsum-text"></div>
       </div>
 
 {% endblock %}

@@ -100,10 +100,29 @@ $(function() {
   }
 
 
+  function selectText( element ) {
+    var text = document.getElementById( element );
+    if ($.browser.msie) {
+      var range = document.body.createTextRange();
+      range.moveToElementText( text );
+      range.select();
+    } else if ($.browser.mozilla || $.browser.opera) {
+      var selection = window.getSelection();
+      var range = document.createRange();
+      range.selectNodeContents( text );
+      selection.removeAllRanges();
+      selection.addRange( range );
+    } else if ($.browser.safari) {
+      var selection = window.getSelection();
+      selection.selectAllChildren( text );
+    }
+  }
+
+
   $('#bacon-form').submit(function() {
 
     var numParas = parseInt( $('#paragraphs').val() );
-    if (isNaN( numParas )) {
+    if (isNaN( numParas ) || numParas < 1) {
       $('#paragraphs').parent().parent().addClass( 'error' );
       $('#paragraphs-error').show();
       return false;
@@ -119,5 +138,10 @@ $(function() {
     $('#ipsum-text').html( text );
 
     return false;
+  });
+
+
+  $('#highlight-text').click(function() {
+    selectText( 'ipsum-text' );
   });
 });
