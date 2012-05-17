@@ -47,13 +47,6 @@ def home():
     return render_template( "home.html" )
 
 
-@app.route( "/makebacon", methods = ["POST"] )
-def makebacon():
-    cur = g.db.execute( "select * from meats" )
-    meats = [row[ 0 ] for row in cur.fetchall()]
-    return json.dumps( meats )
-
-
 @app.route( "/about" )
 def about():
     return render_template( "about.html" )

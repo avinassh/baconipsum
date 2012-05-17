@@ -61,31 +61,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
     <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}" type="text/javascript"></script>
-    <script src="{{ url_for('static', filename='js/application.js') }}" type="text/javascript"></script>
-    <script type="text/javascript">
-      $(function() {
-        $('#bacon-form').submit(function() {
-
-          var numParas = parseInt( $('#paragraphs').val() );
-          if (isNaN( numParas )) {
-            $('#paragraphs').parent().parent().addClass( 'error' );
-            $('#paragraphs-error').show();
-            return false;
-          } else {
-            $('#paragraphs').parent().parent().removeClass( 'error' );
-            $('#paragraphs-error').hide()
-          }
-
-          var length = $('#length').val();
-          var loremStart = $('#loremstart').is( ':checked' );
-
-          var text = genText( numParas, length, loremStart );
-          $('#ipsum-text').html( text );
-
-          return false;
-        });
-      });
-      </script>
+    <script src="{{ url_for('static', filename='js/application.min.js') }}" type="text/javascript"></script>
     </script>
   </body>
 </html>
