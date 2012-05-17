@@ -1,6 +1,12 @@
-activate_this = "/home/david/flask/env/bin/activate_this.py"
+import os
+import sys
+
+
+BASE_DIR = os.path.abspath( os.path.dirname( __file__ ) )
+
+
+activate_this = os.path.join( os.path.abspath( BASE_DIR ), "env/bin/activate_this.py" )
 execfile( activate_this, dict( __file__ = activate_this ) )
 
-import sys
-sys.path.insert( 0, "/home/david/flask" )
+sys.path.insert( 0, BASE_DIR )
 from baconipsum import app as application
