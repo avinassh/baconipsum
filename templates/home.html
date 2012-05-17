@@ -4,6 +4,7 @@
         <h1>Bacon Ipsum</h1>
         <h2>A Meatier Lorem Ipsum Generator</h2>
       </div>
+
       <div class="row">
         <div class="span6 offset3">
           <form id="bacon-form" class="form-horizontal">
@@ -14,13 +15,14 @@
                 <label class="control-label" for="paragraphs">Paragraphs</label>
                 <div class="controls">
                   <input type="text" class="input-mini" id="paragraphs" name="paragraphs" value="3" />
+                  <span id="paragraphs-error" class="help-inline" style="display:none;">Enter a number</span>
                 </div>
               </div>
 
               <div class="control-group">
                 <label class="control-label" for="length">Length</label>
                 <div class="controls">
-                  <select id="length">
+                  <select id="length" name="length">
                     <option value="long" selected="selected">long</option>
                     <option value="medium">medium</option>
                     <option value="short">short</option>
@@ -29,19 +31,24 @@
               </div>
 
               <div class="control-group">
-                <label class="control-label" for="start-with-lorem">Start</label>
+                <label class="control-label" for="loremstart">Start</label>
                 <div class="controls">
                   <label class="checkbox">
-                    <input type="checkbox" id="start-with-lorem" name="start-with-lorem" value="1" />
+                    <input type="checkbox" id="loremstart" name="loremstart" value="1" />
                     Start with "Bacon ipsum dolor sit amet..."
                   </label>
                 </div>
               </div>
 
               <div class="form-actions">
-                <button type="submit" class="btn btn-large btn-primary">Make bacon!</button>
+                <button type="submit" class="btn btn-large btn-primary">Fry up some bacon!</button>
             </fieldset>
           </form>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="span6 offset3" id="ipsum-text">
         </div>
       </div>
 

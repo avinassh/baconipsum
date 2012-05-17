@@ -1,4 +1,4 @@
-## Bacon Ipsum - A Meatier Lorem Ipsum Generator made with Flask
+## Bacon Ipsum - A Meatier Lorem Ipsum Generator
 
 
 # Installation
